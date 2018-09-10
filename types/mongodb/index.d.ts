@@ -63,9 +63,12 @@ export class MongoClient extends EventEmitter {
 }
 
 declare class ClientSession extends EventEmitter {
+    abortTransaction():Promise<any>;
+    commitTransaction(): Promise<any>;
     endSession(callback?: MongoCallback<void>): void;
     endSession(options: any, callback?: MongoCallback<void>): void;
     equals(session: ClientSession): boolean;
+    startTransaction(options: object): void;
 }
 
 export interface MongoClientCommonOption {
